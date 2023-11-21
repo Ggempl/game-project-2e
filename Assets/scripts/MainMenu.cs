@@ -9,7 +9,10 @@ public class MainMenu : MonoBehaviour
     {
       SceneManager.LoadSceneAsync("SampleScene");
     }
-    
-    
-    
+    public void doExitGame() 
+    {
+      Application.Quit();
+      Debug.Log("Quit Game");
+    }
+  
 }
