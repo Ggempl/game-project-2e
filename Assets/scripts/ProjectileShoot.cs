@@ -5,6 +5,9 @@ using UnityEngine;
 public class ProjectileShoot : MonoBehaviour
 {
     public GameObject projectilePrefab;
+    bool canShoot = true;
+
+    [SerializeField] private float fireRate;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +19,24 @@ public class ProjectileShoot : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            Shoot();
+        }
+        
+    }
+
+    IEnumerator FireRate()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(fireRate);
+        canShoot = true;
+    }
+
+    void Shoot()
+    {
+        if (canShoot)
+        {
+            StartCoroutine(FireRate());
+            Instantiate(projectilePrefab, transform.position, Quaternion.identity);          
         }
     }
 }
