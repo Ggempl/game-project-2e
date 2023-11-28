@@ -1014,6 +1014,7 @@ MonoBehaviour:
   - {fileID: 1186049907}
   - {fileID: 1194625181}
   - {fileID: 2075347061}
+  pauseMenu: {fileID: 1897316817}
 --- !u!4 &403481722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4516732739318873088, guid: fa5ced9eeaf583b4ea4fa472a9e3f55e, type: 3}

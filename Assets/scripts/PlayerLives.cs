@@ -7,6 +7,7 @@ public class PlayerLives : MonoBehaviour
 {
     public int lives = 3;
     public Image[] livesUI;
+    public PauseMenu pauseMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +62,7 @@ public class PlayerLives : MonoBehaviour
             }
             if (lives <= 0)
             {
+                pauseMenu.PauseGame();
                 Destroy(gameObject);
             }
         }
