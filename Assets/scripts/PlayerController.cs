@@ -5,7 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5;
+   
     public float hInput;
+
+    [SerializeField] private TimeController timeController;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +20,6 @@ public class PlayerController : MonoBehaviour
     {
         hInput = Input.GetAxisRaw("Horizontal");
 
-         transform.Translate(Vector2.right *hInput* moveSpeed * Time.deltaTime);
+        transform.Translate(Vector2.right * hInput * moveSpeed * Time.deltaTime * timeController.playerTimeScale);
     }
 }

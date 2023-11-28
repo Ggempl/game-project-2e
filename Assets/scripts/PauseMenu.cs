@@ -6,6 +6,7 @@ public class PauseMenu : MonoBehaviour
 {
     private bool isPaused;
     public GameObject PausePanel;
+    public string objectTag = "Enemy";
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,10 @@ public class PauseMenu : MonoBehaviour
                 ResumeGame();
             else
                 PauseGame();
+        }
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        {
+            PauseGame();
         }
     }
     public void PauseGame()
