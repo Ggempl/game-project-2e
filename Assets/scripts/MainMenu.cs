@@ -9,6 +9,10 @@ public class MainMenu : MonoBehaviour
     {
       SceneManager.LoadSceneAsync("SampleScene");
     }
+    public void PlayCredits()
+    {
+        SceneManager.LoadSceneAsync("credits");
+    }
     public void doExitGame() 
     {
       Application.Quit();
