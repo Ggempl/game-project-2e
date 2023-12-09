@@ -7,7 +7,7 @@ public class TimeController : MonoBehaviour
     private bool isTimeSlowed = false;
     private float originalTimeScale;
     public float playerTimeScale = 1.0f; // Separate time scale for the player
-
+    [SerializeField] private AudioClip TimeSlowSoundClip;
     // Duration of time slowdown in seconds
     public float timeSlowDuration = 5.0f;
     private float timeSlowTimer;
@@ -28,6 +28,7 @@ public class TimeController : MonoBehaviour
         if (!isCooldown && Input.GetKeyDown(KeyCode.R))
         {
             ToggleTimeSlow();
+            SoundFXManger.instance.PlaySoundFXClip(TimeSlowSoundClip, transform, 1f);
         }
 
         // Update the player's movement and actions using the separate time scale

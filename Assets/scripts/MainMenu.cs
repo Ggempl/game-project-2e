@@ -5,18 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame() 
+    public AudioSource ButtonSound;
+    public void PlayGame()
     {
-      SceneManager.LoadSceneAsync("SampleScene");
+        SceneManager.LoadSceneAsync("SampleScene");
     }
     public void PlayCredits()
     {
         SceneManager.LoadSceneAsync("credits");
     }
-    public void doExitGame() 
+    public void doExitGame()
     {
-      Application.Quit();
-      Debug.Log("Quit Game");
+        Application.Quit();
+        Debug.Log("Quit Game");
     }
-  
+    public void PlaySoundButton()
+    {
+        ButtonSound.Play();
+
+    }
+    public void CreditsSoundButton()
+    {
+        ButtonSound.Play();
+    }
 }

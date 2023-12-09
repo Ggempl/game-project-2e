@@ -8,6 +8,8 @@ public class PlayerLives : MonoBehaviour
     public int lives = 3;
     public Image[] livesUI;
     public PauseMenu pauseMenu;
+    [SerializeField] private AudioClip EnemyImpactSoundClip;
+    [SerializeField] private AudioClip EnemyProjectileImpactSoundClip;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,8 @@ public class PlayerLives : MonoBehaviour
         {
             Destroy(collision.collider.gameObject);
             lives -= 1;
-            for(int i = 0; i < livesUI.Length; i++)
+            SoundFXManger.instance.PlaySoundFXClip(EnemyImpactSoundClip, transform, 1f);
+            for (int i = 0; i < livesUI.Length; i++)
             {
                 if(i < lives)
                 {
@@ -40,6 +43,7 @@ public class PlayerLives : MonoBehaviour
             if (lives <= 0) 
             {
                 Destroy(gameObject);
+                pauseMenu.PauseGame();
             }
         }
     }
@@ -49,6 +53,7 @@ public class PlayerLives : MonoBehaviour
         {
             Destroy(collision.gameObject);
             lives -= 1;
+            SoundFXManger.instance.PlaySoundFXClip(EnemyProjectileImpactSoundClip, transform, 1f);
             for (int i = 0; i < livesUI.Length; i++)
             {
                 if (i < lives)
@@ -62,8 +67,8 @@ public class PlayerLives : MonoBehaviour
             }
             if (lives <= 0)
             {
-                pauseMenu.PauseGame();
                 Destroy(gameObject);
+                pauseMenu.PauseGame();
             }
         }
     }
